@@ -1,0 +1,30 @@
+.header{
+    width: 100%;
+    background-color: rgba(0,0,0, .2);
+  }
+  .header ul{
+    text-align: right;
+  }
+  .header ul li {
+    list-style: none;
+    display: inline-block ;
+  }
+  .header ul li a {
+    display: block;
+    text-align: none;
+    text-transform: uppercase;
+    color: #fff;
+    font-size: 14px;
+    font-family: 'Raleway',sans-serif;
+    letter-spacing: 2px;
+    font-weight: 600;
+    padding: 25px;
+  }
+  .demo{
+    position: relative;
+    z-index: 1;
+    width: 10%;
+    left: 58px;
+    top: 3em; 
+    background-color: #fff;
+  }

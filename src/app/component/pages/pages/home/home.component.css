@@ -1,0 +1,81 @@
+.lineset{
+  position: relative;
+  top: 2em;
+}
+.emailset{
+  position: relative;
+  z-index: 3;
+  width: 80%;
+  left: 628px;
+  top: 5em; 
+  border: solid #23ade4;
+ 
+}
+.leader{
+  position: relative;
+  top: 3em;
+}
+.header{
+  position: relative;
+  top: 2em;
+}
+
+:host {
+  display: block;
+}
+
+section {
+  margin-top: 100px;
+}
+.background {
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  z-index:-1;
+  background-size: cover;
+
+}
+.div1{
+  background-image: url("https://picsum.photos/id/302/2500/1667")
+}
+.div2{
+  background-image: url("https://picsum.photos/id/302/2500/1667")
+}
+.div3{
+  background-image: url("https://picsum.photos/id/302/2500/1667")
+}
+.div0{
+  background-image: url("https://picsum.photos/id/302/2500/1667")
+}
+.size{
+ min-height: 600px;
+}
+
+.lloking{
+  position: relative;
+ text-align: center;
+  top: 6em;
+  
+}
+.text{
+  position: relative;
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+   top: 12em;
+}
+.textserach{
+  position: relative;
+  display: block;
+  margin-left: 990px;
+   top: 10em;
+}
+.register{
+  position: relative;
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+   top: 14em;
+}

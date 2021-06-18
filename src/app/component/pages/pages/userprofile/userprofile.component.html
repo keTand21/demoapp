@@ -1,0 +1,25 @@
+
+
+  <div class="row pading">
+    <table style="width:70%"  *ngFor="let item of arrProfile">
+ 
+        <tr>
+          <td style="width: 10%;">  <img style="width: 200px; height: 200px;" [src]="item.ProfileImage" alt=""> <br>
+            <button mat-raised-button color="primary" (click)="editphoto(item)" style="margin-top: 5px;">Edit Photo</button>
+            <button mat-raised-button color="primary" (click)="editprofile(item)" style="left: 5px;">Edit Profile</button>
+        
+        </td>
+          <td style="width: 30%;">        I'M {{item.FirstName}} {{item.LastName}} and im above {{item.Age}} and 
+            you can send your emails to
+            {{item.EmailId}} . I live in the state of
+            {{item.State}} I like play 
+            <span *ngFor="let item of item.Tag">
+             {{item.name}}
+            </span> 
+             And please send newsletters .
+            please reach to me on my phone number {{item.MobileNo}}</td>
+         
+        </tr>
+
+      </table>
+  </div>

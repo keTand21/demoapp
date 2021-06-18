@@ -1,0 +1,18 @@
+.lineset{
+    position: relative;
+    z-index: 3;
+    width: 80%;
+    left: 574px;
+    top: 10em;
+}
+.emailset{
+   
+    position: relative;
+    z-index: 3;
+    width: 80%;
+    left: 358px;
+    top: 14em; 
+    border: solid #23ade4;
+   
+}
+

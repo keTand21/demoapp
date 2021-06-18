@@ -1,0 +1,192 @@
+
+
+<div class="row">
+    <div class="col-md-12">
+        <form [formGroup]="registerForm" >
+            <mat-card>
+                <mat-card-header style="background-color: blue; color: cornsilk;">
+                    <mat-card-title style="margin: 8px;">Register</mat-card-title>
+                </mat-card-header>
+             
+                <mat-card-content>
+                    <br>
+
+
+           <div class="row">
+    <div class="col-md-4" >
+    <img [src]="url ? url : 'https://www.w3schools.com/howto/img_avatar.png'"  style="width: 100%px; height: 100px;"> <br>
+    <div class="hover-text">Upload your Photo</div>
+     <input type='file' (change)="onSelectFile($event)" formControlName="ProfileImage"  required>
+     <mat-error *ngFor="let validation of CustomValidator.user.ProfileImage">
+        <span
+            *ngIf="registerForm.get('ProfileImage').hasError(validation.type) &&
+        (registerForm.get('ProfileImage').dirty || registerForm.get('ProfileImage').touched)">{{validation.message}}
+        </span>
+    </mat-error>
+     </div>
+
+
+
+     <div class="col-md-8">
+        <div class="row">
+            <div class="col-md-7">
+                <mat-form-field>
+                    <input matInput formControlName="FirstName" placeholder="First Name" required>
+
+                <mat-error *ngFor="let validation of CustomValidator.user.FirstName">
+                        <span
+                            *ngIf="registerForm.get('FirstName').hasError(validation.type) &&
+                        (registerForm.get('FirstName').dirty || registerForm.get('FirstName').touched)">{{validation.message}}
+                        </span>
+                    </mat-error>
+                </mat-form-field>
+            </div>
+            <div class="col-md-3">
+                <mat-form-field>
+                    <input matInput formControlName="LastName" placeholder="Last Name" required>
+                    <mat-error *ngFor="let validation of CustomValidator.user.LastName">
+                        <span
+                            *ngIf="registerForm.get('LastName').hasError(validation.type) &&
+                        (registerForm.get('LastName').dirty || registerForm.get('LastName').touched)">{{validation.message}}
+                        </span>
+                    </mat-error>
+                </mat-form-field>
+            </div>
+        </div>
+
+
+        <div class="row">
+            
+                <mat-form-field>
+                    <input matInput formControlName="EmailId" placeholder="Email Id"  required>
+                    <mat-error *ngFor="let validation of CustomValidator.user.EmailId">
+                        <span
+                            *ngIf="registerForm.get('EmailId').hasError(validation.type) &&
+                        (registerForm.get('EmailId').dirty || registerForm.get('EmailId').touched)">{{validation.message}}
+                        </span>
+                    </mat-error>
+         
+                </mat-form-field>
+            
+        </div>
+
+        <div class="row">
+          
+                <mat-form-field>
+                    <input matInput formControlName="MobileNo" placeholder="Mobile Number"
+                        onkeypress="if ( isNaN(this.value + String.fromCharCode(event.keyCode) )) return false;"
+                        required>
+                        <mat-error *ngFor="let validation of CustomValidator.user.MobileNo">
+                            <span
+                                *ngIf="registerForm.get('MobileNo').hasError(validation.type) &&
+                            (registerForm.get('MobileNo').dirty || registerForm.get('MobileNo').touched)">{{validation.message}}
+                            </span>
+                        </mat-error>
+                </mat-form-field>
+         
+        </div>
+
+        <div class="row">
+            <div class="col">
+                Age
+            <mat-slider
+            thumbLabel
+            [displayWith]="formatLabel"
+            #matslider (input)="pitch($event)"
+            formControlName="Age"
+            min="20"
+            max="60"
+            aria-label="units"></mat-slider>
+            </div>
+            
+        </div>
+
+        <div class="row">
+ 
+
+            <mat-form-field>
+                <mat-select formControlName="State" placeholder="State">
+                    <mat-option *ngFor="let objState of arrState" [value]="objState.abbreviation">
+                        {{objState.stateName}}</mat-option>
+                </mat-select>
+                <mat-error *ngFor="let validation of CustomValidator.user.State">
+                    <span
+                        *ngIf="registerForm.get('State').hasError(validation.type) &&
+                    (registerForm.get('State').dirty || registerForm.get('State').touched)">{{validation.message}}
+                    </span>
+                </mat-error>
+            </mat-form-field>
+
+     
+        </div>
+
+        <div class="row">
+      
+    
+                <mat-form-field>
+                    <mat-select formControlName="Country" placeholder="Country">
+                        <mat-option *ngFor="let objCountry of allCountries" [value]="objCountry.code">
+                            {{objCountry.name}}</mat-option>
+                    </mat-select>
+                    <mat-error *ngFor="let validation of CustomValidator.user.Country">
+                        <span
+                            *ngIf="registerForm.get('Country').hasError(validation.type) &&
+                        (registerForm.get('Country').dirty || registerForm.get('Country').touched)">{{validation.message}}
+                        </span>
+                    </mat-error>
+                </mat-form-field>
+    
+            </div>
+
+  <div class="row">
+
+          <mat-form-field class="example-chip-list">
+  <mat-label>tags</mat-label>
+  <mat-chip-list #chipList aria-label="Fruit selection">
+    <mat-chip *ngFor="let fruit of fruits" [selectable]="selectable"
+             [removable]="removable" (removed)="remove(fruit)">
+      {{fruit.name}}
+      <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+    </mat-chip>
+    <input placeholder="tags..."
+           [matChipInputFor]="chipList"
+           [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+           [matChipInputAddOnBlur]="addOnBlur"
+           (matChipInputTokenEnd)="add($event)">
+  </mat-chip-list>
+</mat-form-field>
+            </div>
+    
+          
+        <div class="row">
+            <div >
+
+                <mat-checkbox formControlName="chek">Subscribe to newsletter</mat-checkbox>
+           
+            </div>
+        </div>
+<br>
+
+        <div class="row" >
+        <div class="col-md-2  cancelbutton">
+            <button mat-stroked-button color="warn" (click)="onCancel($event)"
+                class="save buttontop" style="left: 313px;">Cancel</button>
+        </div>
+        <div class="col-md-2">
+            <button mat-raised-button color="primary" class="save" (click)="onSave()" style="left: 325px;"
+                >Save</button>
+        </div>
+        </div>
+           
+
+
+     </div>
+</div>
+
+             
+
+               </mat-card-content>
+            </mat-card>
+        </form>
+    </div>
+</div>
